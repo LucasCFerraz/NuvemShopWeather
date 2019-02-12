@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NuvemShopWeather</string>
+    <string name="temperature">temperature</string>
+    <string name="description">Description</string>
+    <string name="max_temperature">Max temperature</string>
+    <string name="min_temperature">Min temperature</string>
+    <string name="weather_condition">Weather condition</string>
+    <string name="details">Details</string>
+</resources>
