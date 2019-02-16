@@ -3,7 +3,7 @@ package com.nuvem.domain.weather
 data class Response<out T> internal constructor(
     val status: Status,
 
-    val message: String? = null,
+    val message: Int? = null,
 
     val data: T? = null,
 
@@ -15,9 +15,9 @@ data class Response<out T> internal constructor(
 
     companion object {
         fun <T> loading(): Response<T> = Response(Status.LOADING)
-        fun <T> success(data: T? = null, message: String? = null): Response<T> = Response(Status.SUCCESS, message, data)
-        fun <T> error(error: Throwable? = null, message: String? = null, data: T? = null): Response<T> =
-            Response(Status.ERROR, message ?: "Generic Error", data, error)
+        fun <T> success(data: T? = null, message: Int? = null): Response<T> = Response(Status.SUCCESS, message, data)
+        fun <T> error(error: Throwable? = null, message: Int? = null, data: T? = null): Response<T> =
+            Response(Status.ERROR, message, data, error)
 
     }
 
