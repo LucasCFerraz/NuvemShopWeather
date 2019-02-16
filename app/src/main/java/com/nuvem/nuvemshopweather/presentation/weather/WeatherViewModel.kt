@@ -8,6 +8,7 @@ import android.databinding.ObservableField
 import com.nuvem.domain.weather.Response
 import com.nuvem.domain.weather.usecase.GetWeatherFromCityUseCase
 import com.nuvem.domain.weather.model.Weather
+import com.nuvem.nuvemshopweather.presentation.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -15,7 +16,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class WeatherViewModel
-@Inject constructor(private val getWeatherUseCase: GetWeatherFromCityUseCase): ViewModel() {
+@Inject constructor(private val getWeatherUseCase: GetWeatherFromCityUseCase): BaseViewModel() {
 
     val cities = arrayOf(
         "Silverstone, UK",
@@ -31,7 +32,6 @@ class WeatherViewModel
     private val disposables = CompositeDisposable()
 
     var citySelectionIndex = 0
-        get() = field
         set(value) {
             field = value
             getCurrentWeatherForCity(cities.get(field))
@@ -45,7 +45,7 @@ class WeatherViewModel
             .subscribe({
                 _weatherResponse.value = it
             },{
-                _weatherResponse.value = Response.error(it,"Connection Error")
+                _weatherResponse.value = Response.error(it, errorMessage(it))
             }).addTo(disposables)
     }
 
