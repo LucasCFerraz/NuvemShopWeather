@@ -6,4 +6,8 @@
     <string name="min_temperature">Min temperature</string>
     <string name="weather_condition">Weather condition</string>
     <string name="details">Details</string>
+    <string name="no_network">Verify your network connection</string>
+    <string name="server_unreacheable">There is an issue with our server, try again later</string>
+    <string name="unknow_error">Unknow error</string>
+
 </resources>
