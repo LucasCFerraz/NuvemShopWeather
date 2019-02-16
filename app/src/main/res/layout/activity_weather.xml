@@ -225,7 +225,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="@{viewModel.weatherResponse.isError() ? View.VISIBLE : View.GONE}"
-                        android:text="@{viewModel.weatherResponse.message}"
+                        android:text="@{context.getString(viewModel.weatherResponse.message)}"
                         android:textSize="20sp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
