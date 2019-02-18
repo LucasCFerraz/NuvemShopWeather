@@ -9,6 +9,7 @@ import com.nuvem.domain.weather.Response
 import com.nuvem.domain.weather.usecase.GetWeatherFromCityUseCase
 import com.nuvem.domain.weather.model.Weather
 import com.nuvem.nuvemshopweather.presentation.BaseViewModel
+import com.nuvem.nuvemshopweather.presentation.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -29,14 +30,14 @@ class WeatherViewModel
     val weatherResponse: LiveData<Response<Weather>>
         get() = _weatherResponse
 
-    private val _citySelectionResponse = MutableLiveData<String>()
-    val citySelectionResponse: LiveData<String>
-        get() = _citySelectionResponse
+    val citySelectionResponse = SingleLiveEvent<String>()
 
     private val disposables = CompositeDisposable()
 
-    var citySelectionIndex = 0
+    var citySelectionIndex = -1
         set(value) {
+            if(value == field)
+                return
             field = value
             getCurrentWeatherForCity(cities.get(field))
         }
@@ -54,7 +55,7 @@ class WeatherViewModel
     }
 
     fun clickDetails() {
-        _citySelectionResponse.value = cities.get(citySelectionIndex)
+        citySelectionResponse.value = cities.get(citySelectionIndex)
     }
 
     fun cleanResources() {

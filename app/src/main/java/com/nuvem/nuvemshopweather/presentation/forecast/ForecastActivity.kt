@@ -26,8 +26,10 @@ class ForecastActivity: DaggerAppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_forecast)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel.get()
-        readExtras()
-        viewModel.get().loadForecast(city)
+        if(savedInstanceState == null) {
+            readExtras()
+            viewModel.get().loadForecast(city)
+        }
     }
 
     private fun readExtras() {
