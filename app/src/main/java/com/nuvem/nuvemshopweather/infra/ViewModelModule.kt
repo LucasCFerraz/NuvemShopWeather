@@ -2,6 +2,7 @@ package com.nuvem.nuvemshopweather.infra
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.nuvem.nuvemshopweather.presentation.forecast.ForecastViewModel
 import com.nuvem.nuvemshopweather.presentation.weather.WeatherViewModel
 import dagger.Binds
 import dagger.Module
@@ -18,4 +19,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(WeatherViewModel::class)
     internal abstract fun bindWeatherViewModel(viewModel: WeatherViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ForecastViewModel::class)
+    internal abstract fun bindForecastViewModel(viewModel: ForecastViewModel): ViewModel
 }
