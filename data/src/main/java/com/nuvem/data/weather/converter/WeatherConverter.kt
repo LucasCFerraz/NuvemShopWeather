@@ -26,7 +26,8 @@ fun WeatherDescriptionDetailResponseAPI.toDomain(): WeatherDescriptionDetail =
 
 fun WeatherResponseAPI.toDomain(): Weather = Weather(
     weatherDetail = this.weatherDetail?.toDomain(),
-    weatherDescriptionDetailList = this.weatherDescriptionDetailList?.map { it.toDomain() }
+    weatherDescriptionDetailList = this.weatherDescriptionDetailList?.map { it.toDomain() },
+    dateTxt = this.dateTxt
 )
 
 fun WeatherForecastResponseAPI.toDomain(): WeatherForecast =
