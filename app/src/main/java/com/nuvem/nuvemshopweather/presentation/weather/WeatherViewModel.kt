@@ -29,6 +29,10 @@ class WeatherViewModel
     val weatherResponse: LiveData<Response<Weather>>
         get() = _weatherResponse
 
+    private val _citySelectionResponse = MutableLiveData<String>()
+    val citySelectionResponse: LiveData<String>
+        get() = _citySelectionResponse
+
     private val disposables = CompositeDisposable()
 
     var citySelectionIndex = 0
@@ -49,12 +53,8 @@ class WeatherViewModel
             }).addTo(disposables)
     }
 
-    fun getForecastForCity(city: String) {
-
-    }
-
     fun clickDetails() {
-
+        _citySelectionResponse.value = cities.get(citySelectionIndex)
     }
 
     fun cleanResources() {

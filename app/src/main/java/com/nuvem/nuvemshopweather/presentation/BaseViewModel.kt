@@ -5,6 +5,7 @@ import com.nuvem.data.weather.error.HttpCallFailureException
 import com.nuvem.data.weather.error.NoNetworkException
 import com.nuvem.data.weather.error.ServerUnreachableException
 import com.nuvem.data.weather.error.UnknowNetworkException
+import com.nuvem.local_provider.NoLocalDataFoundExcepetion
 import com.nuvem.nuvemshopweather.R
 
 open class BaseViewModel: ViewModel() {
