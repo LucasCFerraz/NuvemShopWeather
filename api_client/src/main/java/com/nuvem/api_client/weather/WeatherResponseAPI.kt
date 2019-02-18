@@ -7,5 +7,8 @@ data class WeatherResponseAPI (
     val weatherDetail: WeatherDetailResponseAPI? = null,
 
     @SerializedName("weather")
-    val weatherDescriptionDetailList: List<WeatherDescriptionDetailResponseAPI>? = null
+    val weatherDescriptionDetailList: List<WeatherDescriptionDetailResponseAPI>? = null,
+
+    @SerializedName("dt_txt")
+    val dateTxt: String? = null
 )

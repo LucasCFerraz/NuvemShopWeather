@@ -1,1 +1,1 @@
-include ':app', ':domain', ':data', ':api_client'
+include ':app', ':domain', ':data', ':api_client', ':local_provider'
